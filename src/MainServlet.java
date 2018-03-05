@@ -21,7 +21,7 @@ import org.json.simple.parser.ParseException;
 public class MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private int count;
-	private String path = "C:\\Users\\lenovo\\Documents\\workspace-sts-3.9.2.RELEASE\\ClearSky\\src\\fav.json";
+	private String path = "/home/sapient/Desktop/WeatherProject/src/fav.json";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -36,11 +36,7 @@ public class MainServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String action=request.getParameter("action");
-		System.out.println("here" +action);
 		
-		if(action.equalsIgnoreCase("add"))
-		{
 			JSONObject main = new JSONObject();
 			JSONArray  cities = new JSONArray();
 			JSONObject city = new JSONObject();
@@ -89,21 +85,9 @@ public class MainServlet extends HttpServlet {
 				response.setContentType("application/json");
 				response.getWriter().write(main.toString());	
 			}
-		}
 		
-		if(action.equalsIgnoreCase("view"))
-		{
-			JSONParser parser = new JSONParser();
-			try {
-				JSONObject main = (JSONObject) parser.parse(new FileReader(path));
-				response.setContentType("application/json");
-				response.getWriter().write(main.toString());	
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}	
-		}
-	
 	}
+		
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

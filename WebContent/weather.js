@@ -39,14 +39,14 @@ $(document).ready(function() {
 				
 				document.getElementById("card").innerHTML = cardObj;
 				
-				var button = document.createElement("BUTTON");
+				var btn = document.createElement("BUTTON");
 				
-				button.innerHTML = "Add to favourites";
-				button.onclick = function() {
+				btn.innerHTML = "Add to Fav";
+				btn.onclick = function() {
 					addToFavourites();
 
 				}
-				document.getElementById('addfav').replaceWith(button);
+				document.getElementById('addfav').appendChild(btn);
 			}
 		}
 	});
@@ -57,11 +57,12 @@ function addToFavourites(){
 	
 	xmlhttp.onreadystatechange = function(){
 		if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-			document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+			alert("Added Successfully");	
+			
 		}
 	};
-	var params = "city=" +city + "&weather=" +weather+ "&temp=" +temp+ "&min_temp=" +min_temp+ "&max_temp=" +max_temp+ "&wind_speed="+wind_speed + "&action=add";
-	xmlhttp.open('GET',"http://localhost:8080/ClearSky/MainServlet?"+params, true);
+	var params = "city=" +city + "&weather=" +weather+ "&temp=" +temp+ "&min_temp=" +min_temp+ "&max_temp=" +max_temp+ "&wind_speed="+wind_speed;
+	xmlhttp.open('GET',"http://localhost:8080/WeatherProject/MainServlet?"+params, true);
 	xmlhttp.send();
 }
 
@@ -74,8 +75,8 @@ function readJSON(){
 			document.getElementById("output").innerHTML = viewFavourites(obj);
 		}
 	};
-	var params = "&action=view";
-	request.open("GET", "http://localhost:8080/ClearSky/MainServlet?"+params,true);
+
+	request.open("GET", "http://localhost:8080/WeatherProject/Favourities?",true);
 	request.send();
 }
 
