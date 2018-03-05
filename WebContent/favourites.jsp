@@ -20,10 +20,12 @@
 		<script src="js/ie-support/html5.js"></script>
 		<script src="js/ie-support/respond.js"></script>
 		<![endif]-->
+		<script src="weather.js"></script>
 
 	</head>
 
-	<body>
+
+	<body onLoad='readJSON()'>
 		
 		<div class="site-content">
 			<div class="site-header">
@@ -31,7 +33,7 @@
 					<a href="index.jsp" class="branding">
 						<img src="images/logo.png" alt="" class="logo">
 						<div class="logo-type">
-							<h1 class="site-title">WeatherLook</h1>
+							<h1 class="site-title">WaetherLook</h1>
 							<small class="site-description">Weather Application</small>
 						</div>
 					</a>
@@ -40,8 +42,8 @@
 					<div class="main-navigation">
 						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 						<ul class="menu">
-							<li class="menu-item current-menu-item"><a href="index.jsp">Home</a></li>
-							<li class="menu-item"><a href="favourites.jsp">Favourites</a></li>
+							<li class="menu-item"><a href="index.jsp">Home</a></li>
+							<li class="menu-item current-menu-item"><a href="favourites.jsp">Favourites</a></li>
 							
 						</ul> <!-- .menu -->
 					</div> <!-- .main-navigation -->
@@ -51,24 +53,25 @@
 				</div>
 			</div> <!-- .site-header -->
 
-			<div class="hero" data-bg-image="images/img2.jpg">
-				<div class="container find-location">
-						<input type="text" name="city" id="cityname" placeholder="Enter a City">
-						<button id="submitWeather" class="btn btn-primary">Search City</button>
-				</div>
-			</div>
-		
-			<div class="forecast-table">
+			<main class="main-content">
 				<div class="container">
-					<div class="forecast-container">
-						<div class="today forecast" id="card">
+					<div class="breadcrumb">
+						<a href="index.jsp">Home</a>
+						<span>Photos</span>
+					</div>
+				</div>
+				
+				<div class="fullwidth-block">
+					<div class="container">
+						<div class="row" id="output">
+							<div class="col-md-6" id="output">
+							</div>
 						</div>
 					</div>
-					<div id="addfav" class="favbutton"></div>
 				</div>
-			</div>
-	 			<div id="myDiv" class="floating-box addtofav"></div>  
-			<br><br><br><br><br>
+				
+			</main> <!-- .main-content -->
+
 			<footer class="site-footer">
 				<div class="container">
 					<div class="row">
@@ -96,12 +99,11 @@
 		<script src="js/jquery-1.11.1.min.js"></script>
 		<script src="js/plugins.js"></script>
 		<script src="js/app.js"></script>
+		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	
-	 <script src="weather.js"></script>
-  
-		
+
+   
 	</body>
 
 </html>
