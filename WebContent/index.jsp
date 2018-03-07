@@ -65,6 +65,7 @@
 						</div>
 					</div>
 					<div id="addfav" class="favbutton"></div>
+	
 				</div>
 			</div>
 	 			<div id="myDiv" class="floating-box addtofav"></div>  

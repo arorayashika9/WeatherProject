@@ -97,6 +97,10 @@ function viewFavourites(data){
 		favObj+= "</div>";
 		favObj+= "</div>";
 		favObj+= "</div>";
+		
+		
+
 	}
 	return favObj;
 }
+
